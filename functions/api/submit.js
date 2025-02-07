@@ -1,48 +1,20 @@
 /**
  * POST /api/submit
+ * https://developers.cloudflare.com/workers/tutorials/send-emails-with-resend/
  */
-export async function onRequestPost(context) {
-  try {
-    let input = await context.request.formData();
-    let output = {};
-    for (let [key, value] of input) {
-      let tmp = output[key];
-      if (tmp === undefined) {
-        output[key] = value;
-      } else {
-        output[key] = [].concat(tmp, value);
-      }
-    }
+import { Resend } from "resend";
 
-    let pretty = JSON.stringify(output, null, 2);
-    
-    // Define email parameters
-    const emailAddress = "waseem2202@gmail.com"; // Replace with your email
-    const subject = "New Form Submission";
-    const body = `You have received a new form submission:\n\n${pretty}`;
-    
-    // Send email using Cloudflare Email Routing (if enabled) or third-party service
-    const sendEmail = await fetch("https://api.mailchannels.net/tx/v1/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        personalizations: [{ to: [{ email: emailAddress }] }],
-        from: { email: "no-reply@islandroofers.co.uk" }, // Adjust domain as needed
-        subject: subject,
-        content: [{ type: "text/plain", value: body }],
-      }),
+export default {
+  async fetch(request, env, ctx) {
+    const resend = new Resend(env.RESEND_API_KEY);
+
+    const { data, error } = await resend.emails.send({
+      from: "hello@example.com",
+      to: "someone@example.com",
+      subject: "Hello World",
+      html: "<p>Hello from Workers</p>",
     });
-    
-    if (!sendEmail.ok) {
-      let errorText = await sendEmail.text();
-      console.error("Email send error:", errorText);
-      throw new Error("Failed to send email");
-    }
 
-    // Redirect user to thank-you.html
-    return Response.redirect("/thank-you.html", 302);
-  } catch (err) {
-    console.error("Form submission error:", err);
-    return new Response("Error processing request", { status: 500 });
-  }
-}
+    return Response.json({ data, error });
+  },
+};
