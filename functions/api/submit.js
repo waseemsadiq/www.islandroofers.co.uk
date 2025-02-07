@@ -4,9 +4,6 @@
 export async function onRequestPost(context) {
   try {
     let input = await context.request.formData();
-
-    // Convert FormData to JSON
-    // NOTE: Allows multiple values per key
     let output = {};
     for (let [key, value] of input) {
       let tmp = output[key];
@@ -18,12 +15,31 @@ export async function onRequestPost(context) {
     }
 
     let pretty = JSON.stringify(output, null, 2);
-    return new Response(pretty, {
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
+    
+    // Define email parameters
+    const emailAddress = "waseem2202@gmail.com"; // Replace with your email
+    const subject = "New Form Submission";
+    const body = `You have received a new form submission:\n\n${pretty}`;
+    
+    // Send email using Cloudflare Email Routing (if enabled) or third-party service
+    const sendEmail = await fetch("https://api.mailchannels.net/tx/v1/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        personalizations: [{ to: [{ email: emailAddress }] }],
+        from: { email: "no-reply@islandroofers.co.uk" }, // Adjust domain as needed
+        subject: subject,
+        content: [{ type: "text/plain", value: body }],
+      }),
     });
+    
+    if (!sendEmail.ok) {
+      throw new Error("Failed to send email");
+    }
+
+    // Redirect user to thank-you.html
+    return Response.redirect("/thank-you.html", 302);
   } catch (err) {
-    return new Response("Error parsing JSON content", { status: 400 });
+    return new Response("Error processing request", { status: 500 });
   }
 }
