@@ -136,7 +136,8 @@
         <div class="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-8">
             <h2 class="text-3xl font-bold text-center mb-8">Get Your Free Quote</h2>
             <form x-data="{ selectedType: '', showOtherField: false }" 
-                  data-static-form-name="contact"
+                   method="POST" 
+                   action="/api/submit"
                   class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div x-data="{ placeholderText: 'Jock Thompson' }">
