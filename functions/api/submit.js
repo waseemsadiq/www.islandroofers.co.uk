@@ -4,9 +4,6 @@
 export async function onRequestPost(context) {
   try {
     let input = await context.request.formData();
-
-    // Convert FormData to JSON
-    // NOTE: Allows multiple values per key
     let output = {};
     for (let [key, value] of input) {
       let tmp = output[key];
@@ -37,13 +34,15 @@ export async function onRequestPost(context) {
     });
     
     if (!sendEmail.ok) {
+      let errorText = await sendEmail.text();
+      console.error("Email send error:", errorText);
       throw new Error("Failed to send email");
     }
 
     // Redirect user to thank-you.html
     return Response.redirect("/thank-you.html", 302);
   } catch (err) {
-    console.error(err);
+    console.error("Form submission error:", err);
     return new Response("Error processing request", { status: 500 });
   }
 }
