@@ -4,6 +4,9 @@
 export async function onRequestPost(context) {
   try {
     let input = await context.request.formData();
+
+    // Convert FormData to JSON
+    // NOTE: Allows multiple values per key
     let output = {};
     for (let [key, value] of input) {
       let tmp = output[key];
