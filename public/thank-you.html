@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ isMenuOpen: false }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#00A1E4">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Island Roofers | Emergency Slate Roof Repairs & Slating Experts | West Coast Scotland</title>
+    <meta name="description" content="15+ years of roofing experience. Fast, mobile emergency repairs and slating services across the West Coast of Scotland and surrounding islands.">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics placeholder -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXX');
+    </script>
+
+    <style>
+        .map-container {
+            filter: grayscale(1) contrast(1.2) opacity(0.9);
+        }
+    </style>
+</head>
+<body class="font-['Open_Sans'] bg-white">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 bg-white shadow-md z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo placeholder -->
+            <img src="images/ir-logo.png" alt="Island Roofers Logo" class="h-24 w-80 object-contain">
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#services" class="text-gray-600 hover:text-blue-600">Services</a>
+                <a href="#quote" class="text-gray-600 hover:text-blue-600">Get a Free Quote</a>
+                <!--
+                <a href="#about" class="text-gray-600 hover:text-blue-600">About</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600">Testimonials</a>
+                -->
+                <a href="tel:+447533735669" class="bg-sky-500 text-white px-6 py-2 rounded-full hover:bg-cyan-400">
+                    Emergency: 07533 735669
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button @click="isMenuOpen = !isMenuOpen" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div x-show="isMenuOpen" class="md:hidden absolute w-full bg-white shadow-lg py-4">
+            <a href="#services" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Services</a>
+            <a href="#quote" class="block px-4 py-2 text-gray-600 hover:text-gray-50">Get a Free Quote</a>
+            <!--
+            <a href="#about" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">About</a>
+            <a href="#testimonials" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Testimonials</a>
+            -->
+            <a href="tel:+447533735669" class="block px-4 py-2 bg-sky-500 text-white">Emergency: 07533 735669</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-sky-500 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Slate Roof Repairs and Installation Across the West Coast & Islands of Scotland</h1>
+            <p class="text-xl mb-8">15+ Years Experience | Fully Mobile | Slating Specialists</p>
+            <a href="#quote" class="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100">
+                Get a Free Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- USP Grid -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="grid md:grid-cols-1 gap-8">
+            <div class="text-center p-6">
+                <div class="bg-blue-100 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Thank you for requesting a quote</h3>
+                <p class="text-gray-600">We'll be in touch soon</p>
+            </div>
+            <!-- Repeat similar blocks for other USPs -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <p class="mb-2">24/7 Emergency: 07533 735669</p>
+                    <p>Email: <a href="mailto:info@roofz.co.uk">info@roofz.co.uk</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Legal</h3>
+                    <a href="#" class="block mb-2 hover:text-blue-400">Privacy Policy</a>
+                    <a href="#" class="block hover:text-blue-400">Terms of Service</a>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-blue-400">Instagram</a>
+                        <a href="#" class="hover:text-blue-400">TikTok</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p>&copy; 2024 Island Roofers Limited. All rights reserved. Registered in Scotland with the company number SC811790</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
