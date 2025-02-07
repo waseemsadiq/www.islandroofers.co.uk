@@ -1,20 +1,29 @@
 /**
  * POST /api/submit
- * https://developers.cloudflare.com/workers/tutorials/send-emails-with-resend/
  */
-import { Resend } from "resend";
+export async function onRequestPost(context) {
+  try {
+    let input = await context.request.formData();
 
-export default {
-  async fetch(request, env, ctx) {
-    const resend = new Resend(env.RESEND_API_KEY);
+    // Convert FormData to JSON
+    // NOTE: Allows multiple values per key
+    let output = {};
+    for (let [key, value] of input) {
+      let tmp = output[key];
+      if (tmp === undefined) {
+        output[key] = value;
+      } else {
+        output[key] = [].concat(tmp, value);
+      }
+    }
 
-    const { data, error } = await resend.emails.send({
-      from: "hello@example.com",
-      to: "someone@example.com",
-      subject: "Hello World",
-      html: "<p>Hello from Workers</p>",
+    let pretty = JSON.stringify(output, null, 2);
+    return new Response(pretty, {
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
     });
-
-    return Response.json({ data, error });
-  },
-};
+  } catch (err) {
+    return new Response("Error parsing JSON content", { status: 400 });
+  }
+}
