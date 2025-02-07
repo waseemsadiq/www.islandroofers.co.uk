@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ isMenuOpen: false }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#00A1E4">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Island Roofers | Emergency Slate Roof Repairs & Slating Experts | West Coast Scotland</title>
+    <meta name="description" content="15+ years of roofing experience. Fast, mobile emergency repairs and slating services across the West Coast of Scotland and surrounding islands.">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics placeholder -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXX');
+    </script>
+
+    <style>
+        .map-container {
+            filter: grayscale(1) contrast(1.2) opacity(0.9);
+        }
+    </style>
+</head>
+<body class="font-['Open_Sans'] bg-white">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 bg-white shadow-md z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo placeholder -->
+            <img src="images/ir-logo.png" alt="Island Roofers Logo" class="h-24 w-80 object-contain">
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#services" class="text-gray-600 hover:text-blue-600">Services</a>
+                <a href="#quote" class="text-gray-600 hover:text-blue-600">Get a Free Quote</a>
+                <!--
+                <a href="#about" class="text-gray-600 hover:text-blue-600">About</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600">Testimonials</a>
+                -->
+                <a href="tel:+447533735669" class="bg-sky-500 text-white px-6 py-2 rounded-full hover:bg-cyan-400">
+                    Emergency: 07533 735669
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button @click="isMenuOpen = !isMenuOpen" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div x-show="isMenuOpen" class="md:hidden absolute w-full bg-white shadow-lg py-4">
+            <a href="#services" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Services</a>
+            <a href="#quote" class="block px-4 py-2 text-gray-600 hover:text-gray-50">Get a Free Quote</a>
+            <!--
+            <a href="#about" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">About</a>
+            <a href="#testimonials" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Testimonials</a>
+            -->
+            <a href="tel:+447533735669" class="block px-4 py-2 bg-sky-500 text-white">Emergency: 07533 735669</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-sky-500 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Slate Roof Repairs and Installation Across the West Coast & Islands of Scotland</h1>
+            <p class="text-xl mb-8">15+ Years Experience | Fully Mobile | Slating Specialists</p>
+            <a href="#quote" class="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100">
+                Get a Free Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- USP Grid -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="grid md:grid-cols-1 gap-8">
+            <div class="text-center p-6">
+                <div class="bg-blue-100 w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">24/7 Emergency Repairs</h3>
+                <p class="text-gray-600">Fast response across the West Coast</p>
+            </div>
+            <!-- Repeat similar blocks for other USPs -->
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Slate Roof Repairs</h3>
+                    <p class="text-gray-600">Fast response to all slate roofing emergencies across Glasgow, Ayrshire, and surrounding islands.</p>
+                </div>
+                <div class="bg-sky-500 text-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Slate Roof Installations</h3>
+                    <p>Whether you have a new building or an existing one that needs a new roof, with 15+ years of experience - we can slate it!</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Roofing Lead Work Specialists</h3>
+                    <p class="text-gray-600">From gable ends to dormer and velux windows, all aspects of roofing lead work undertaken.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Gutter Maintenance & Clearance</h3>
+                    <p class="text-gray-600">A roof can be let down by blocked or damaged guttering, our gutter maintenance service helps your roof to keep you dry.</p>
+                </div>
+                <!-- Add other services -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area Map -->
+    <div class="map-container">
+        <iframe 
+            class="w-full h-96" 
+            frameborder="0" 
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0" 
+            src="https://maps.google.com/maps?&ll=55.9,-5&z=8&t=m&output=embed">
+        </iframe>
+    </div>
+
+    <!-- Quote Form Section -->
+    <section id="quote" class="container mx-auto px-4 py-16">
+        <div class="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-center mb-8">Get Your Free Quote</h2>
+            <form x-data="{ selectedType: '', showOtherField: false }" 
+                  data-static-form-name="quote"
+                  class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div x-data="{ placeholderText: 'Jock Thompson' }">
+                        <label class="block text-gray-700 mb-2">Full Name *</label>
+                        <input type="text" name="name" required
+                            class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            :placeholder="placeholderText" 
+                            @focus="placeholderText = ''" 
+                            @blur="placeholderText = 'Jock Thompson'">
+                    </div>
+                    <div x-data="{ placeholderText: 'jock@email.scot' }">
+                        <label class="block text-gray-700 mb-2">Email Address *</label>
+                        <input type="email" name="email" required
+                            class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            :placeholder="placeholderText" 
+                            @focus="placeholderText = ''" 
+                            @blur="placeholderText = 'jock@email.scot'">
+                    </div>
+                    <div x-data="{ placeholderText: '07123 456789' }">
+                        <label class="block text-gray-700 mb-2">Phone Number *</label>
+                        <input type="tel" name="phone" required
+                            class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            :placeholder="placeholderText" 
+                            @focus="placeholderText = ''" 
+                            @blur="placeholderText = '07123 456789'">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Service Type *</label>
+                        <select name="service_type" x-model="selectedType" 
+                                @change="showOtherField = (selectedType === 'other')"
+                                class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Select a service...</option>
+                            <option value="slate_repair">Slate Roof Repair</option>
+                            <option value="new_slating">New Slating Project</option>
+                            <option value="leadwork">Lead Work</option>
+                            <option value="guttering">Guttering</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div x-show="showOtherField" class="space-y-2" x-data="{ placeholderText: 'Another service' }">
+                    <label class="block text-gray-700 mb-2">Please specify your request *</label>
+                    <input type="text" name="other_description" 
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                        x-bind:required="showOtherField"
+                        :placeholder="placeholderText" 
+                        @focus="placeholderText = ''" 
+                        @blur="placeholderText = 'Another service'">
+                </div>
+
+                <div x-data="{ placeholderText: 'Please enter a description of your project...' }">
+                    <label class="block text-gray-700 mb-2">Project Details</label>
+                    <textarea name="details" rows="4"
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                        :placeholder="placeholderText" 
+                        @focus="placeholderText = ''" 
+                        @blur="placeholderText = 'Please enter a description of your project...'"></textarea>
+                </div>
+
+                <button type="submit" 
+                    class="w-full bg-sky-500 text-white py-3 rounded-lg hover:bg-cyan-400 transition-colors">
+                    Submit Quote Request
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <p class="mb-2">24/7 Emergency: 07533 735669</p>
+                    <p>Email: <a href="mailto:info@roofz.co.uk">info@roofz.co.uk</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Legal</h3>
+                    <a href="#" class="block mb-2 hover:text-blue-400">Privacy Policy</a>
+                    <a href="#" class="block hover:text-blue-400">Terms of Service</a>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-blue-400">Instagram</a>
+                        <a href="#" class="hover:text-blue-400">TikTok</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p>&copy; 2024 Island Roofers Limited. All rights reserved. Registered in Scotland with the company number SC811790</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
