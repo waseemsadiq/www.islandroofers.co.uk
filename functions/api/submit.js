@@ -15,7 +15,7 @@ export async function onRequestPost(context) {
         output[key] = [].concat(tmp, value);
       }
     }
-
+    console.log(output[email]);
     let pretty = JSON.stringify(output, null, 2);
     
     // Define email parameters
