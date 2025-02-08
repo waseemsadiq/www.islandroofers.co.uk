@@ -19,10 +19,9 @@ export async function onRequestPost(context) {
     let pretty = JSON.stringify(output, null, 2);
     
     // Define email parameters
-    const emailAddress = "waseem2202@gmail.com"; // Replace with your email
+    const emailAddress = "lovablerogue@islandroofers.com"; // Replace with your email
     const subject = "New Form Submission";
-    const emailData = createTable(pretty);
-    const body = `You have received a new form submission:\n\n${emailData}`;
+    const body = `You have received a new form submission:\n\n${pretty}`;
     
     // Initialize Resend
     const resend = new Resend("re_ABavWFQW_BPTRmGqwR4Nuj1yx9cfffgkH");
@@ -41,8 +40,7 @@ export async function onRequestPost(context) {
     }
 
     // Redirect user to thank-you.html
-    return location.assign("https://example.com/dashboard");
-    //return Response.redirect("https://www.islandroofers.co.uk/thank-you.html", 302);
+    return Response.redirect("https://www.islandroofers.co.uk/thank-you.html", 302);
   } catch (err) {
     console.error("Form submission error:", err);
     return new Response(err, { status: 500 });
