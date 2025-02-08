@@ -1,12 +1,11 @@
 /**
  * POST /api/submit
  */
+import { Resend } from "resend";
+
 export async function onRequestPost(context) {
   try {
     let input = await context.request.formData();
-
-    // Convert FormData to JSON
-    // NOTE: Allows multiple values per key
     let output = {};
     for (let [key, value] of input) {
       let tmp = output[key];
@@ -18,12 +17,32 @@ export async function onRequestPost(context) {
     }
 
     let pretty = JSON.stringify(output, null, 2);
-    return new Response(pretty, {
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
+    
+    // Define email parameters
+    const emailAddress = "waseem2202@gmail.com"; // Replace with your email
+    const subject = "New Form Submission";
+    const body = `You have received a new form submission:\n\n${pretty}`;
+    
+    // Initialize Resend
+    const resend = new Resend(env.RESEND_API_KEY);
+    
+    // Send email using Resend
+    const { data, error } = await resend.emails.send({
+      from: "no-reply@islandroofers.co.uk", // Adjust domain as needed
+      to: emailAddress,
+      subject: subject,
+      html: `<pre>${body}</pre>`,
     });
+    
+    if (error) {
+      console.error("Resend email error:", error);
+      throw new Error("Failed to send email");
+    }
+
+    // Redirect user to thank-you.html
+    return Response.redirect("/thank-you.html", 302);
   } catch (err) {
-    return new Response("Error parsing JSON content", { status: 400 });
+    console.error("Form submission error:", err);
+    return new Response("Error processing request", { status: 500 });
   }
 }
