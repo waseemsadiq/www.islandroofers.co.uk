@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Protect sensitive directories
+Disallow: /admin/
+Disallow: /administrator/
+Disallow: /includes/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /private/
+Disallow: /cache/
+Disallow: /backup/
+Disallow: /functions/
+
+Sitemap: https://www.islandroofers.co.uk/sitemap.xml
