@@ -20,8 +20,8 @@ export async function onRequestPost(context) {
     
     // Define email parameters
     const emailAddress = "lovablerogue@islandroofers.com"; // Replace with your email
-    const subject = "New Form Submission";
-    const body = `You have received a new form submission:\n\n${pretty}`;
+    const subject = "New Quote Request";
+    const body = `You have received a new quote request:\n\n${pretty}`;
     
     // Initialize Resend
     const resend = new Resend("re_ABavWFQW_BPTRmGqwR4Nuj1yx9cfffgkH");
