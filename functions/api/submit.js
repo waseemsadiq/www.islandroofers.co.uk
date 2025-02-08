@@ -31,7 +31,7 @@ export async function onRequestPost(context) {
       from: "no-reply@islandroofers.co.uk", // Adjust domain as needed
       to: emailAddress,
       subject: subject,
-      html: `<pre>${body.get('name')}</pre>`,
+      html: `<pre>${body}</pre>`,
     });
     
     if (error) {
