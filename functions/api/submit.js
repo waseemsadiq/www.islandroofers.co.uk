@@ -40,8 +40,7 @@ export async function onRequestPost(context) {
     }
 
     // Redirect user to thank-you.html
-    return window.location.href = "/thank-you.html";
-    //return Response.redirect("https://www.islandroofers.co.uk/thank-you.html", 302);
+    return Response.redirect("https://www.islandroofers.co.uk/thank-you.html", 302);
   } catch (err) {
     console.error("Form submission error:", err);
     return new Response(err, { status: 500 });
