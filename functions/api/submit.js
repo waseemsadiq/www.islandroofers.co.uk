@@ -24,7 +24,7 @@ export async function onRequestPost(context) {
     const body = `You have received a new form submission:\n\n${pretty}`;
     
     // Initialize Resend
-    const resend = new Resend("re_ABavWFQW_BPTRmGqwR4Nuj1yx9cfffgkH");
+    const resend = new Resend(env.RESEND_API_KEY);
     
     // Send email using Resend
     const { data, error } = await resend.emails.send({
