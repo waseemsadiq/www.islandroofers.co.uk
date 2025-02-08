@@ -6,21 +6,30 @@ import { Resend } from "resend";
 export async function onRequestPost(context) {
   try {
     let input = await context.request.formData();
-    let output = {};
-    for (let [key, value] of input) {
-      let tmp = output[key];
-      if (tmp === undefined) {
-        output[key] = value;
-      } else {
-        output[key] = [].concat(tmp, value);
-      }
+    
+    // Validate required fields
+    const requiredFields = ['name', 'email', 'phone', 'service_type', 'details'];
+    for (const field of requiredFields) {
+      if (!input.get(field)) return badRequest(`Missing required field: ${field}`);
     }
-    let pretty = JSON.stringify(output, null, 2);
+
+    const emailContent = `
+      New Quote Request Received:
+      ---------------------------
+      Name: ${input.get('name')}
+      Email: ${input.get('email')}
+      Phone: ${input.get('phone')}
+      Service Type: ${input.get('service_type')}
+      ${input.get('other_description') ? `Other Description: ${input.get('other_description')}` : ''}
+      Details: ${input.get('details')}
+      
+      Received at: ${new Date().toISOString()}
+    `;
     
     // Define email parameters
     const emailAddress = "lovablerogue@islandroofers.com"; // Replace with your email
     const subject = "New Quote Request";
-    const body = `You have received a new quote request:\n\n${pretty}`;
+    const body = emailContent;
     
     // Initialize Resend
     const resend = new Resend("re_ABavWFQW_BPTRmGqwR4Nuj1yx9cfffgkH");
@@ -30,7 +39,7 @@ export async function onRequestPost(context) {
       from: "no-reply@islandroofers.co.uk", // Adjust domain as needed
       to: emailAddress,
       subject: subject,
-      html: `<pre>${body}</pre>`,
+      html: body,
     });
     
     if (error) {
