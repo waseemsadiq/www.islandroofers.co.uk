@@ -150,7 +150,7 @@
                     </div>
                     <div x-data="{ placeholderText: 'jock@email.scot' }">
                         <label class="block text-gray-700 mb-2">Email Address *</label>
-                        <input type="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                        <input type="email" name="email" required
                             class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                             :placeholder="placeholderText" 
                             @focus="placeholderText = ''" 
