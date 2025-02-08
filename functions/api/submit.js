@@ -21,8 +21,8 @@ export async function onRequestPost(context) {
     // Define email parameters
     const emailAddress = "waseem2202@gmail.com"; // Replace with your email
     const subject = "New Form Submission";
-    const data = createTable(pretty);
-    const body = `You have received a new form submission:\n\n${data}`;
+    const emailData = createTable(pretty);
+    const body = `You have received a new form submission:\n\n${emailData}`;
     
     // Initialize Resend
     const resend = new Resend("re_ABavWFQW_BPTRmGqwR4Nuj1yx9cfffgkH");
