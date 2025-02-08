@@ -19,7 +19,7 @@ export async function onRequestPost(context) {
     let pretty = JSON.stringify(output, null, 2);
     
     // Define email parameters
-    const emailAddress = "lovablerogue@islandroofers.com"; // Replace with your email
+    const emailAddress = "waseem2202@gmail.com"; // Replace with your email
     const subject = "New Form Submission";
     const body = `You have received a new form submission:\n\n${pretty}`;
     
