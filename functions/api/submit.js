@@ -21,7 +21,8 @@ export async function onRequestPost(context) {
     // Define email parameters
     const emailAddress = "waseem2202@gmail.com"; // Replace with your email
     const subject = "New Form Submission";
-    const body = `You have received a new form submission:\n\n${pretty}`;
+    const data = createTable(pretty);
+    const body = `You have received a new form submission:\n\n${data}`;
     
     // Initialize Resend
     const resend = new Resend("re_ABavWFQW_BPTRmGqwR4Nuj1yx9cfffgkH");
@@ -31,7 +32,7 @@ export async function onRequestPost(context) {
       from: "no-reply@islandroofers.co.uk", // Adjust domain as needed
       to: emailAddress,
       subject: subject,
-      html: createTable(body),
+      html: `<pre>${body}</pre>`,
     });
     
     if (error) {
