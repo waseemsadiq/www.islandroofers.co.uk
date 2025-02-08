@@ -31,7 +31,7 @@ export async function onRequestPost(context) {
       from: "no-reply@islandroofers.co.uk", // Adjust domain as needed
       to: emailAddress,
       subject: subject,
-      html: `<pre>${body}</pre>`,
+      html: createTable(body);,
     });
     
     if (error) {
@@ -40,7 +40,8 @@ export async function onRequestPost(context) {
     }
 
     // Redirect user to thank-you.html
-    return Response.redirect("https://www.islandroofers.co.uk/thank-you.html", 302);
+    return location.assign("https://example.com/dashboard");
+    //return Response.redirect("https://www.islandroofers.co.uk/thank-you.html", 302);
   } catch (err) {
     console.error("Form submission error:", err);
     return new Response(err, { status: 500 });
