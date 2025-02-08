@@ -43,6 +43,6 @@ export async function onRequestPost(context) {
     return Response.redirect("/thank-you.html", 302);
   } catch (err) {
     console.error("Form submission error:", err);
-    return new Response("Error processing request", { status: 500 });
+    return new Response(err, { status: 500 });
   }
 }
