@@ -37,7 +37,8 @@
             <!-- Desktop Nav -->
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#services" class="text-gray-600 hover:text-blue-600">Services</a>
-                <a href="#quote" class="text-gray-600 hover:text-blue-600">Get a Free Quote</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600">Contact Us</a>
+                <a href="https://quote.islandroofers.co.uk" target="_blank" rel="nofollow" class="text-gray-600 hover:text-blue-600">Get a Free Quote</a>
                 <!--
                 <a href="#about" class="text-gray-600 hover:text-blue-600">About</a>
                 <a href="#testimonials" class="text-gray-600 hover:text-blue-600">Testimonials</a>
@@ -58,7 +59,8 @@
         <!-- Mobile Menu -->
         <div x-show="isMenuOpen" class="md:hidden absolute w-full bg-white shadow-lg py-4">
             <a href="#services" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Services</a>
-            <a href="#quote" class="block px-4 py-2 text-gray-600 hover:text-gray-50">Get a Free Quote</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Contact Us</a>
+            <a href="https://quote.islandroofers.co.uk" target="_blank" class="block px-4 py-2 text-gray-600 hover:text-gray-50">Get a Free Quote</a>
             <!--
             <a href="#about" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">About</a>
             <a href="#testimonials" class="block px-4 py-2 text-gray-600 hover:bg-gray-50">Testimonials</a>
@@ -72,7 +74,7 @@
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Slate Roof Repairs and Installation Across the West Coast & Islands of Scotland</h1>
             <p class="text-xl mb-8">10+ Years Experience | Fully Mobile | Slating Specialists</p>
-            <a href="#quote" class="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100">
+            <a href="https://quote.islandroofers.co.uk" target="_blank" class="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100">
                 Get a Free Quote
             </a>
         </div>
@@ -132,10 +134,10 @@
         </iframe>
     </div>
 
-    <!-- Quote Form Section -->
-    <section id="quote" class="container mx-auto px-4 py-16">
+    <!-- Contact Form Section -->
+    <section id="contact" class="container mx-auto px-4 py-16">
         <div class="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-8">
-            <h2 class="text-3xl font-bold text-center mb-8">Get Your Free Quote</h2>
+            <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
             <form x-data="{ selectedType: '', showOtherField: false }" 
                   method="POST" 
                   action="/api/submit"
@@ -203,7 +205,7 @@
 
                 <button type="submit" 
                     class="w-full bg-sky-500 text-white py-3 rounded-lg hover:bg-cyan-400 transition-colors">
-                    Submit Quote Request
+                    Send
                 </button>
             </form>
         </div>
