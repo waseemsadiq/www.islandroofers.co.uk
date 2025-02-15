@@ -4,12 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#00A1E4">
-    <link rel="shortcut icon" href="favicon.ico">
-    <title>Island Roofers | Emergency Slate Roof Repairs & Slating Experts | West Coast Scotland</title>
-    <meta name="description" content="10+ years of roofing experience. Fast, mobile emergency repairs and slating services across the West Coast of Scotland and surrounding islands.">
-    <meta property="og:title" content="Island Roofers | Emergency Slate Roof Repairs & Slating Experts | West Coast Scotland" />
-    <meta property="og:description" content="10+ years of roofing experience. Fast, mobile emergency repairs and slating services across the West Coast of Scotland and surrounding islands." />
+    <link rel="canonical" href="https://www.islandroofers.co.uk/" />
+    <meta name="robots" content="index, follow">
+
+    <!-- Primary Meta Tags -->
+    <title>Emergency Roof Repairs Glasgow | Slate Roofing Contractors West Scotland | Island Roofers</title>
+    <meta name="description" content="24/7 Emergency Roof Repair Service ➔ Slate Roofing Experts in Glasgow, Ayrshire & Scottish Islands ➔ FREE Quotes ➔ 10+ Years Experience ➔ Storm Damage Specialists ➔ Serving Arran, Bute, Islay & Jura">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.islandroofers.co.uk/">
+    <meta property="og:title" content="Emergency Slate Roof Repairs | Glasgow & West Scotland Roofing Contractors">
+    <meta property="og:description" content="Need urgent roof repairs? Island Roofers provide 24/7 emergency roofing services across Glasgow, Ayrshire and the Scottish Islands. FREE quotes & 10-year guarantees.">
+    <meta property="og:image" content="https://www.islandroofers.co.uk/images/og.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Emergency Roof Repairs Glasgow & Scottish Islands | Island Roofers">
+    <meta name="twitter:description" content="⛈️ 24/7 Storm Damage Roof Repairs ➔ Slate Roofing Specialists ➔ Glasgow, Ayrshire & Islands ➔ FREE Quotes ➔ 10+ Years Local Experience">
+    <meta name="twitter:image" content="https://www.islandroofers.co.uk/images/og.png">
+
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RoofingContractor",
+      "name": "Island Roofers",
+      "image": "https://www.islandroofers.co.uk/images/logo.jpg",
+      "@id": "https://www.islandroofers.co.uk/",
+      "url": "https://www.islandroofers.co.uk/",
+      "telephone": "+447533735669",
+      "priceRange": "£££",
+      "priceCurrency": "GBP",
+      "currenciesAccepted": "GBP",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11 James Taylor Avenue",
+        "addressLocality": "Catrine",
+        "postalCode": "KA5 6PT",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 55.5141,
+        "longitude": -4.3857
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://www.tiktok.com/@scottishslater"
+      ]
+    }
+    </script>
+
+    <!-- Geo-Region Meta -->
+    <meta name="geo.region" content="GB-GLG" />
+    <meta name="geo.placename" content="Glasgow, Ayrshire, Arran, Bute, Islay" />
+    <meta name="geo.position" content="55.5141;-4.3857" />
+    <meta name="ICBM" content="55.5141, -4.3857" />
+
+    <!-- Scripts -->
     <script src="https://unpkg.com/alpinejs" defer></script>
+
+    <!-- Stylesheets -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
@@ -101,25 +170,79 @@
     <!-- Services Section -->
     <section id="services" class="bg-gray-50 py-16">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="bg-sky-500 text-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-4">Slate Roof Repairs</h3>
-                    <p>Fast response to all slate roofing emergencies across Glasgow, Ayrshire, and surrounding islands.</p>
+            <div x-data="{ tab: 'services' }" class="">
+
+                <div class="flex space-x-4 border-b justify-center">
+                    <button 
+                        class="px-4 py-2 border-b-2 text-xl font-bold mb-2"
+                        :class="tab === 'services' ? 'border-blue-500 text-blue-500' : 'border-transparent text-gray-500'"
+                        @click="tab = 'services'">
+                        Our Services
+                    </button>
+                    <button 
+                        class="px-4 py-2 border-b-2 text-xl font-bold mb-2"
+                        :class="tab === 'areas' ? 'border-blue-500 text-blue-500' : 'border-transparent text-gray-500'"
+                        @click="tab = 'areas'">
+                        Service Areas
+                    </button>
                 </div>
-                <div class="bg-rose-500 text-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-4">Slate Roof Installations</h3>
-                    <p>Whether you have a new building or an existing one that needs a new roof, with 10+ years of experience - we can slate it!</p>
+
+
+                <div class="mt-4">
+                    <div x-show="tab === 'services'" class="p-4 bg-gray-50 rounded">
+                            <div class="grid md:grid-cols-4 gap-8">
+                                <div class="bg-sky-500 text-white p-6 rounded-lg shadow-md">
+                                    <h3 class="text-xl font-bold mb-4">Slate Roof Repairs</h3>
+                                    <p>Fast response to all slate roofing emergencies across Glasgow, Ayrshire, and surrounding islands.</p>
+                                </div>
+                                <div class="bg-rose-500 text-white p-6 rounded-lg shadow-md">
+                                    <h3 class="text-xl font-bold mb-4">Slate Roof Installations</h3>
+                                    <p>Whether you have a new building or an existing one that needs a new roof, with 10+ years of experience - we can slate it!</p>
+                                </div>
+                                <div class="bg-lime-500 text-white p-6 rounded-lg shadow-md">
+                                    <h3 class="text-xl font-bold mb-4">Roofing Lead Work Specialists</h3>
+                                    <p>From gable ends to dormer and velux windows, all aspects of roofing lead work undertaken.</p>
+                                </div>
+                                <div class="bg-amber-500 text-white p-6 rounded-lg shadow-md">
+                                    <h3 class="text-xl font-bold mb-4">Gutter Maintenance & Clearance</h3>
+                                    <p>A roof can be let down by blocked or damaged guttering, our gutter maintenance service helps your roof to keep you dry.</p>
+                                </div>
+                                <!-- Add other services -->
+                            </div>
+                        
+                    </div>
+
+                    <div x-show="tab === 'areas'" class="p-4 bg-gray-50 rounded">
+                        <div class="max-w-4xl m-auto">
+                            <h2 class="text-xl font-semibold mb-2 text-sky-600">Some of the areas we service include:</h2>
+                            <h3 class="text-xl font-semibold mb-2">Island Roofing:</h3>
+                            <ul class="list-disc list-inside space-y-2 mb-6">
+                                <li><strong>Isle of Arran Roofers:</strong> Emergency storm damage roof repairs & traditional slate roofing specialists serving Lamlash and Brodick communities</li>
+                                <li><strong>Bute Roofing Contractors:</strong> Heritage roof preservation experts maintaining Rothesay's Victorian architecture with period-accurate slating techniques</li>
+                                <li><strong>Cumbrae Roof Services:</strong> Coastal roofing solutions for Millport homes and commercial properties</li>
+                                <li><strong>Gigha Roof Repairs:</strong> Community-focused roofing solutions protecting Ardminish properties from Atlantic storms</li>
+                                <li><strong>Islay Distillery Roofing:</strong> Specialist roof maintenance for world-famous whisky warehouses and coastal homes</li>
+                                <li><strong>Jura Emergency Repairs:</strong> 24/7 emergency response for remote properties and Craighouse community buildings</li>
+                                <li><strong>Mull Tourism Roofing:</strong> Durable roofing solutions for holiday rentals and historic Tobermory properties</li>
+                                <li><strong>Skye Bridge Roofing:</strong> Storm-resistant roof installations for Portree homes and highland estates</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold mb-2">Trusted Roofing Services Across West Scotland:</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Southside Glasgow Roofers:</strong> Fast leak repairs & roof maintenance in Shawlands, Giffnock and Pollokshields</li>
+                                <li><strong>Glasgow West End Specialists:</strong> Conservation-area approved slate roofing for Victorian & Edwardian homes</li>
+                                <li><strong>Ayr Coastal Roofing:</strong> Salt-resistant roofing installations & emergency storm repairs along the Firth of Clyde</li>
+                                <li><strong>Kilmarnock Industrial Roofing:</strong> Warehouse roofing solutions & whisky storage facility maintenance</li>
+                                <li><strong>Irvine & Troon Flat Roofing:</strong> Commercial roofing property specialists serving Ayrshire's coastal business parks</li>
+                                <li><strong>Prestwick Airport Roofing:</strong> High-wind resistant roof installations near Glasgow Prestwick Airport</li>
+                                <li><strong>Lanarkshire Roof Contractors:</strong> New build roofing installations & roof maintenance across Motherwell and Hamilton</li>
+                                <li><strong>Greenock Maritime Roofing:</strong> Historic dockyard building roofing preservation</li>
+                                <li><strong>Helensburgh Heritage Roofing:</strong> Charles Rennie Mackintosh property roofing specialists & roof conservation work</li>
+                                <li><strong>Campbeltown Distillery Roofing:</strong> Specialist roofing maintenance for Scotland's whisky coast heritage sites</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-lime-500 text-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-4">Roofing Lead Work Specialists</h3>
-                    <p>From gable ends to dormer and velux windows, all aspects of roofing lead work undertaken.</p>
-                </div>
-                <div class="bg-amber-500 text-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-4">Gutter Maintenance & Clearance</h3>
-                    <p>A roof can be let down by blocked or damaged guttering, our gutter maintenance service helps your roof to keep you dry.</p>
-                </div>
-                <!-- Add other services -->
             </div>
         </div>
     </section>
